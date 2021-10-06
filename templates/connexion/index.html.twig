@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+<?php $session = new Session(); ?>
+
+    {% include 'barNavigation.html.twig' %}
+
+    <h1>Bonjour {{app.session.get('prenom')}}</h1>
+
+    <h3>Votre profil Visiteur est activé</h3>
+
+    <ul>
+        <p>Nom : {{app.session.get('nom')}}</p>
+        <p>Prenom : {{app.session.get('prenom')}}</p>
+    </ul>
+</div>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+
+    .form{
+        display: flex;
+        flex-direction:column;
+        width:min-content;
+    }
+</style>
+
+<div class="example-wrapper">
+
+    <h1>Connexion</h1>
+    
+    <form action="/connexion" method="POST" class="form" name="formulaireConnexion">
+        <label>login</label>
+        <input name="login" />
+        <label>Mot de passe</label>
+        <input name="mdp" type="password" />
+        <button>Se connecter</button>
+    </form>
+
+
+    {% set lienPage = path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) %}
+
+    {% if lienPage == '/connexion/echec' %}
+        {%set styleErreur = 'color:red; border-radius:5%; text-align:center'%}
+        <p style={{styleErreur}}>L'indentifiant ou le mot de passe est incorrect.</p>
+    {% endif %}
+
+
+</div>
+{% endblock %}

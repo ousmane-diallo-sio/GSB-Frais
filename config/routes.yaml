@@ -1,0 +1,22 @@
+index:
+    path: /
+    controller: App\Controller\AccueilController::index
+
+connexion:
+    path: /connexion/{echec}/{login}
+    controller: App\Controller\ConnexionController::index
+    defaults:
+        echec: null
+        login: null
+
+seConnecter:
+    path: /seConnecter
+    controller: App\Controller/ConnexionController::seConnecter
+
+seDeconnecter:
+    path: /
+    controller: App\Controller/ConnexionController::seDeconnecter
+
+consulterFicheFrais:
+    path: /consulter
+    controller: App\Controller\ConsulterFicheFraisController::index
