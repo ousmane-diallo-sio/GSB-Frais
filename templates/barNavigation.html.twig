@@ -1,4 +1,8 @@
-<div style="display: flex; flex-direction: row; justify-content: space-between">
-        <a href={{ path('seDeconnecter') }}>Se déconnecter</a>
-        <a href={{ path('consulterFicheFrais') }}>Consulter mes fiches de frais</a>
+<div class="example-wrapper" style="display: flex; flex-direction: row; justify-content: space-between; background-color:#eee; 
+        padding: 0.5em; ">
+        <div>
+                <a href={{path('accueilUtilisateur')}}>Accueil</a>
+                <a href={{ path('consulterFicheFrais') }}>Consulter fiches de frais</a>
+        </div>
+        <a style="color:#c00" href={{ path('seDeconnecter') }}>Se déconnecter</a>
 </div>

@@ -1,6 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Interface Visiteur{% endblock %}
+{% block title %}Consulter fiche de frais{% endblock %}
+
+{% block head %}
+    {% block stylesheets %}
+        <link href="{{ asset('/css/styles.css') }}" rel="stylesheet" />
+    {% endblock %}
+{% endblock %}
 
 {% block body %}
 <style>
@@ -12,11 +18,20 @@
 <div class="example-wrapper">
 <?php $session = new Session(); ?>
 
-    {% include 'barNavigation.html.twig' %}
+    <div style="margin: 2em 0 2em 0">
+    
 
-    <p>consulter fiche frais</p>
+        <div style="display:flex; justify-content:center; flex-direction:column; text-align:center">
+            <h3>Consulter la liste des fiches de frais</h3>
 
-    <button action="/saisir-frais">Saisir des frais</button>
+
+            <p>[liste fiche de frais]</p>
+
+            <p>[ {{ ficheFrais['id'][0] }} ]</p>
+
+        </div>
+    
+    </div>
 
 </div>
 

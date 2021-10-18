@@ -2,6 +2,12 @@
 
 {% block title %}Connexion{% endblock %}
 
+{% block head %}
+    {% block stylesheets %}
+        <link href="{{ asset('/css/styles.css') }}" rel="stylesheet" />
+    {% endblock %}
+{% endblock %}
+
 {% block body %}
 <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
@@ -14,17 +20,21 @@
     }
 </style>
 
-<div class="example-wrapper">
+<div class="example-wrapper" style="display:flex; flex-direction: column; align-items:center">
 
-    <h1>Connexion</h1>
+    <img src="{{asset('/img/logo.png')}}" height=150em style="margin-bottom: 2em" />
+
+    <div style="border: 2.5px solid #000b; padding: 0 4em 1em 4em; border-radius: 0.2em">
     
-    <form action="/connexion" method="POST" class="form" name="formulaireConnexion">
-        <label>login</label>
-        <input name="login" />
-        <label>Mot de passe</label>
-        <input name="mdp" type="password" />
-        <button>Se connecter</button>
-    </form>
+        <form action="/connexion" method="POST" class="form" name="formulaireConnexion">
+            <h1>Connexion</h1>
+            <label>login</label>
+            <input name="login" />
+            <label>Mot de passe</label>
+            <input name="mdp" type="password" />
+            <button class="greenBG" style="margin-top:0.5em">Se connecter</button>
+        </form>
+    </div>
 
 
     {% set lienPage = path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) %}

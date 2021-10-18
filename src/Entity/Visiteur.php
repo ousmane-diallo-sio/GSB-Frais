@@ -3,12 +3,13 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use PhpParser\Node\Expr\Cast\String_;
 
 /**
  * Visiteur
  *
  * @ORM\Table(name="Visiteur")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\VisiteurRepository")
  */
 class Visiteur
 {
@@ -176,6 +177,13 @@ class Visiteur
         $this->dateembauche = $dateembauche;
 
         return $this;
+    }
+
+
+    public function __toString(): ?string
+    {
+        return $this->getId() .' '. $this->getNom() .' '. $this->getPrenom() .' '. $this->getLogin() .' '. $this->getMdp() .' '. 
+        $this->getAdresse() .' '. $this->getCp() .' '. $this->getVille() .' '.  $this->getDateembauche()->format("j-m-Y H-i-s");
     }
 
 

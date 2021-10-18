@@ -8,10 +8,13 @@ use Doctrine\ORM\Mapping as ORM;
  * Etat
  *
  * @ORM\Table(name="Etat")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\EtatRepository")
  */
 class Etat
+
 {
+
+
     /**
      * @var string
      *
@@ -43,6 +46,12 @@ class Etat
         $this->libelle = $libelle;
 
         return $this;
+    }
+
+
+    public function __toString(): ?string
+    {
+        return $this->getId() .' '. $this->getLibelle();
     }
 
 

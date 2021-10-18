@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Visiteur;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -54,37 +55,23 @@ class ConnexionController extends AbstractController
 
         try{
 
-            $bd = new PDO(
-                'mysql:host=localhost;dbname=gsbFrais' ,
-                'sanayabio' ,
-                'azerty'
-            ) ;
+            $em = $this->getDoctrine()->getManager();
+            $repositoryConnexion = $em->getRepository(Visiteur::class);
+            $visiteur = $repositoryConnexion->findOneBy( array('login' => $login, 'mdp' => $mdp) );
 
-            $sql = 'select * from Visiteur where login = :login and mdp = :mdp';
-            
-            $st = $bd -> prepare( $sql ) ;
 
-            $st -> execute( array( 
-                                ':login' => $login ,
-                                ':mdp' => $mdp 
-                        ) 
-                    ) ;
-            $resultat = $st -> fetchall() ;
-
-            unset( $bd ) ;
-
-            if( count( $resultat ) == 1 ) {
+            if($visiteur){
 
                 $session = $request->getSession();
                 //$session->start();
-                $session->set('login', $resultat[0]['login']);
-                $session->set('id', $resultat[0]['id']);
-                $session->set('nom', $resultat[0]['nom']);
-                $session->set('prenom', $resultat[0]['prenom']);
-                $session->set('adresse', $resultat[0]['adresse']);
-                $session->set('cp', $resultat[0]['cp']);
-                $session->set('ville', $resultat[0]['ville']);
-                $session->set('dateEmbauche', $resultat[0]['dateEmbauche']);
+                $session->set( 'login', $visiteur->getLogin() );
+                $session->set( 'id', $visiteur->getId() );
+                $session->set( 'nom', $visiteur->getNom() );
+                $session->set( 'prenom', $visiteur->getPrenom() );
+                $session->set( 'adresse', $visiteur->getAdresse() );
+                $session->set( 'cp', $visiteur->getCP() );
+                $session->set( 'ville', $visiteur->getVille() );
+                $session->set( 'dateEmbauche', $visiteur->getDateEmbauche() );
 
 
                 $this->connexionOk = true;

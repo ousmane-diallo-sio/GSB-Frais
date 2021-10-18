@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Fraisforfait
  *
  * @ORM\Table(name="FraisForfait")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\FraisforfaitRepository")
  */
 class Fraisforfait
 {
@@ -107,5 +107,11 @@ class Fraisforfait
 
         return $this;
     }
+
+    public function __toString(): ?string
+    {
+        return $this->getId() .' '. $this->getLibelle() .' '. $this->getMontant() .' ' /* .$this->getIdvisiteur()*/;
+    }
+
 
 }

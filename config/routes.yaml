@@ -2,6 +2,10 @@ index:
     path: /
     controller: App\Controller\AccueilController::index
 
+accueilUtilisateur:
+    path: /accueil
+    controller: App\Controller\AccueilController:accueilUtilisateur
+
 connexion:
     path: /connexion/{echec}/{login}
     controller: App\Controller\ConnexionController::index
@@ -19,4 +23,4 @@ seDeconnecter:
 
 consulterFicheFrais:
     path: /consulter
-    controller: App\Controller\ConsulterFicheFraisController::index
+    controller: App\Controller\ConsulterFicheFraisController::consulterFicheFrais

@@ -1,0 +1,30 @@
+p, h1,h2,h3,h4,h5, td, tr, a{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+button{
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 0.3em;
+    transition: 0.35s;
+}
+
+button:hover{
+    cursor: pointer;
+    background-color: #212121;
+    color: #fff
+}
+
+.greenBG{
+    background-color: #4CAF50;
+}
+
+.blueBG{
+    background-color: rgb(58, 120, 255);
+}

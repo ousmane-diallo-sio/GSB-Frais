@@ -15,4 +15,10 @@ class AccueilController extends AbstractController
             'controller_name' => 'AccueilController',
         ]);
     }
+
+    public function accueilUtilisateur(){
+        return $this->render('connexion/index.html.twig');
+    }
+
+
 }

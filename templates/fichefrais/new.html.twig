@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Fichefrais{% endblock %}
+
+{% block body %}
+    <h1>Create new Fichefrais</h1>
+
+    {{ include('fichefrais/_form.html.twig') }}
+
+    <a href="{{ path('fichefrais_index') }}">back to list</a>
+{% endblock %}

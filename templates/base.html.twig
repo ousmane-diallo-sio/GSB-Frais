@@ -7,13 +7,21 @@
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
             {#{{ encore_entry_link_tags('app') }}#}
+            <link href="{{ asset('/css/styles.css') }}" rel="stylesheet" />
         {% endblock %}
 
         {% block javascripts %}
             {#{{ encore_entry_script_tags('app') }}#}
         {% endblock %}
+
+        <link rel="icon" href="{{asset('/img/logo.png')}}" type="image" />
+
+
     </head>
     <body>
+            {% if app.request.pathinfo != "/" and app.request.pathinfo != "/connexion" and app.request.pathinfo != "/connexion" %}
+                {% include 'barNavigation.html.twig' %}
+            {% endif %}
         {% block body %}{% endblock %}
     </body>
 </html>
