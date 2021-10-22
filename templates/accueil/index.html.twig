@@ -24,16 +24,63 @@
 
     <img src="{{asset('/img/logo.png')}}" height=150em style="margin-bottom: 2em" />
 
-    <div style="border: 2.5px solid #000b; padding: 0 4em 1em 4em; border-radius: 0.2em">
+    <div style="border: 2.5px solid #000b; padding: 0 4em 1em 4em; border-radius: 0.2em; background-color: #eaeaea">
     
         <form action="/connexion" method="POST" class="form" name="formulaireConnexion">
-            <h1>Connexion</h1>
-            <label>login</label>
-            <input name="login" />
+            <h1 id="textConnexion" style="text-align: center">Connexion</h1>
+            <label>Login</label>
+            <input name="login" class="border" id="login" autocomplete="off" style="text-align:center; font-weight: bold" />
             <label>Mot de passe</label>
-            <input name="mdp" type="password" />
-            <button class="greenBG" style="margin-top:0.5em">Se connecter</button>
+            <input name="mdp" type="password" class="border" id="mdp" style="text-align:center;" />
+            <button class="greenBG border" style="margin-top:0.5em">Se connecter</button>
         </form>
+
+        <script>
+            let login = document.getElementById("login");
+            let mdp = document.getElementById("mdp");
+            login.focus();
+            login.style.transition = "0.35s"
+            mdp.style.transition = "0.35s"
+            login.style.border = "solid #44f 2px";
+            mdp.style.border = "solid black 2px";
+            login.style.padding = "0.5em 0 0.3em 0";
+            mdp.style.padding = "0.2em 0 .2em 0";
+
+            login.addEventListener("focus", () => {
+                login.style.border = "solid #44f 2px";
+                login.style.padding = "0.5em 0 0.3em 0";
+                mdp.style.border = "solid black 2px";
+                mdp.style.padding = "0.2em 0 0.2em 0";
+            });
+
+            mdp.addEventListener("focus", () => {
+                login.style.border = "solid black 2px";
+                login.style.padding = "0.2em 0 0.2em 0";
+                mdp.style.border = "solid #44f 2px";
+                mdp.style.padding = "0.5em 0 0.3em 0";
+            });
+
+
+            let textConnexion = document.getElementById("textConnexion");
+            let listeConnexion = ["C", "o", "n", "n", "e", "x", "i", "o", "n"];
+            let index = 0;
+            textConnexion.style = "height: 0.3em; transition: 0.6s";
+            textConnexion.innerHTML = "";
+
+            const interval = setInterval(function() {
+                    if(listeConnexion[index] == undefined){
+                        index = 0;
+                        textConnexion.innerHTML = "";
+                    }
+                    else{
+                        index++;
+                        textConnexion.style = "height: 1em; transition: 0.6s";
+                        textConnexion.innerHTML = textConnexion.innerHTML + listeConnexion[index-1];
+                    }
+            }, 300);
+
+        </script>
+
     </div>
 
 

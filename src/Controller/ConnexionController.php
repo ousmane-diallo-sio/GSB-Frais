@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Fichefrais;
 use App\Entity\Visiteur;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -62,6 +63,9 @@ class ConnexionController extends AbstractController
 
             if($visiteur){
 
+                $rpFicheFrais = $em->getRepository(Fichefrais::class);
+                $ficheFrais = $rpFicheFrais->findBy( array('idvisiteur' => $visiteur->getId()) );
+
                 $session = $request->getSession();
                 //$session->start();
                 $session->set( 'login', $visiteur->getLogin() );
@@ -72,8 +76,8 @@ class ConnexionController extends AbstractController
                 $session->set( 'cp', $visiteur->getCP() );
                 $session->set( 'ville', $visiteur->getVille() );
                 $session->set( 'dateEmbauche', $visiteur->getDateEmbauche() );
-
-
+                $session->set( 'ficheFrais', $ficheFrais );
+                
                 $this->connexionOk = true;
 
                 return $session;

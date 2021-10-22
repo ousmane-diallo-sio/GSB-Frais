@@ -19,7 +19,7 @@
 
     </head>
     <body>
-            {% if app.request.pathinfo != "/" and app.request.pathinfo != "/connexion" and app.request.pathinfo != "/connexion" %}
+            {% if app.request.pathinfo != "/" and app.request.pathinfo != "/connexion/echec" %}
                 {% include 'barNavigation.html.twig' %}
             {% endif %}
         {% block body %}{% endblock %}

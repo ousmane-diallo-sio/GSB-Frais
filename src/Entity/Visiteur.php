@@ -20,7 +20,7 @@ class Visiteur
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    private $id = 'NULL';
 
     /**
      * @var string|null
@@ -81,6 +81,13 @@ class Visiteur
     public function getId(): ?string
     {
         return $this->id;
+    }
+
+    public function setId(?string $id): self
+    {
+        $this->id = $id;
+
+        return $this;
     }
 
     public function getNom(): ?string

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Etat;
+use App\Entity\Visiteur;
 use App\Entity\Fichefrais;
 use App\Form\FichefraisType;
 use DateTimeInterface;
@@ -41,14 +42,20 @@ class FichefraisController extends AbstractController
         $fichefrai = new Fichefrais();
         $fichefrai->setMontantvalide('0');
         $fichefrai->setDatemodif(new \DateTime());
+        $visiteur = new Visiteur();
+        $visiteur->setId('a17');
+        $entityManager->persist($visiteur);
+        $fichefrai->setIdvisiteur($visiteur);
         $etat = new Etat();
-        $etat->setLibelle('test');
+        $etat->setId(null);
         $entityManager->persist($etat);
         $fichefrai->setIdetat($etat);
         $form = $this->createForm(FichefraisType::class, $fichefrai);
+        
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $fichefrai = $form->getData();
             $entityManager->persist($fichefrai);
             $entityManager->flush();
 

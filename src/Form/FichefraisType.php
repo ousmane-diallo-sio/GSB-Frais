@@ -4,6 +4,10 @@ namespace App\Form;
 
 use App\Entity\Fichefrais;
 use Doctrine\DBAL\Types\DateType;
+use Doctrine\DBAL\Types\StringType;
+use Doctrine\DBAL\Types\TextType;
+use Doctrine\ORM\Query\Expr\Select;
+use PhpParser\Node\Expr\Cast\String_;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;

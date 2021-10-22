@@ -27,7 +27,31 @@
 
             <p>[liste fiche de frais]</p>
 
-            <p>[ {{ ficheFrais['id'][0] }} ]</p>
+            <table class="table">
+        <thead>
+            <tr>
+                <th>Mois</th>
+                <th>Nbjustificatifs</th>
+                <th>Montantvalide</th>
+                <th>Datemodif</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fichefrai in ficheFrais %}
+            <tr>
+                <td>{{ fichefrai.mois }}</td>
+                <td>{{ fichefrai.nbjustificatifs }}</td>
+                <td>{{ fichefrai.montantvalide }}</td>
+                <td>{{ fichefrai.datemodif ? fichefrai.datemodif|date('Y-m-d') : '' }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucune fiche trouvée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 
         </div>
     

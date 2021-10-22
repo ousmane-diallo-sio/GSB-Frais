@@ -5,6 +5,9 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\Visiteur;
+use App\Entity\Etat;
+
 
 /**
  * Fichefrais
@@ -85,6 +88,13 @@ class Fichefrais
     public function getMois(): ?string
     {
         return $this->mois;
+    }
+
+    public function setMois(?string $mois): self
+    {
+        $this->mois = $mois;
+
+        return $this;
     }
 
     public function getNbjustificatifs(): ?int
