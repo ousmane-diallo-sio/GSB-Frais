@@ -21,18 +21,18 @@ class FichefraisType extends AbstractType
         $builder
             ->add('mois', ChoiceType::class, [
                 'choices' => [
-                    'Janvier' => 'Janvier',
-                    'Février' => 'Février',
-                    'Mars' => 'Mars',
-                    'Avril' => 'Avril',
-                    'Mai' => 'Mai',
-                    'Juin' => 'Juin',
-                    'Juillet' => 'Juillet',
-                    'Août' => 'Août',
-                    'Septembre' => 'Septembre',
-                    'Octobre' => 'Octobre',
-                    'Novembre' => 'Novembre',
-                    'Décembre' => 'Décembre'
+                    'Janvier' => 'janv',
+                    'Février' => 'févr',
+                    'Mars' => 'mars',
+                    'Avril' => 'avr',
+                    'Mai' => 'mai',
+                    'Juin' => 'juin',
+                    'Juillet' => 'juill',
+                    'Août' => 'août',
+                    'Septembre' => 'sept',
+                    'Octobre' => 'oct',
+                    'Novembre' => 'nov',
+                    'Décembre' => 'déc'
                 ]
             ])
             ->add('nbjustificatifs')

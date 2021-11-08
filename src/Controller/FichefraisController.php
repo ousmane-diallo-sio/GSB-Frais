@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Etat;
 use App\Entity\Visiteur;
 use App\Entity\Fichefrais;
+use App\Entity\Fraisforfait;
 use App\Form\FichefraisType;
 use DateTimeInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -37,25 +38,25 @@ class FichefraisController extends AbstractController
      */
     public function new(Request $request): Response
     {
-        $entityManager = $this->getDoctrine()->getManager();
-
         $fichefrai = new Fichefrais();
         $fichefrai->setMontantvalide('0');
         $fichefrai->setDatemodif(new \DateTime());
-        $visiteur = new Visiteur();
-        $visiteur->setId('a17');
-        $entityManager->persist($visiteur);
-        $fichefrai->setIdvisiteur($visiteur);
-        $etat = new Etat();
-        $etat->setId(null);
-        $entityManager->persist($etat);
-        $fichefrai->setIdetat($etat);
+            
         $form = $this->createForm(FichefraisType::class, $fichefrai);
         
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+
+            $fichefrai->setMois( $form->get('mois')->getData() );
+            $fichefrai->setNbjustificatifs( $form->get('nbjustificatifs')->getData() );
+            $fichefrai->setMontantvalide( $form->get('montantvalide')->getData() );
+            $fichefrai->setDatemodif( $form->get('datemodif')->getData() );
+            $fichefrai->setIdetat( $form->get('idetat')->getData() );
+            $fichefrai->setIdvisiteur( $form->get('idvisiteur')->getData() );
             $fichefrai = $form->getData();
+
             $entityManager->persist($fichefrai);
             $entityManager->flush();
 

@@ -23,13 +23,13 @@ class ConsulterFicheFraisController extends AbstractController
 
     public function consulterFicheFrais(){
         $em = $this->getDoctrine()->getManager();
-        $repositoryFicheFrais = $em->getRepository(Visiteur::class);
+        $repositoryFicheFrais = $em->getRepository(Fichefrais::class);
         $ficheFrais = $repositoryFicheFrais->findAll();
 
 
 
         return $this->render('consulter_fiche_frais/index.html.twig', [
-            'ficheFrai' => print_r($this->getFiches()),
+            'ficheFrai' => print_r($ficheFrais),
             'ficheFrais' => $this->getFiches(),
         ]);
 

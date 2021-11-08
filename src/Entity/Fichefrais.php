@@ -14,6 +14,7 @@ use App\Entity\Etat;
  *
  * @ORM\Table(name="FicheFrais", indexes={@ORM\Index(name="idEtat", columns={"idEtat"}), @ORM\Index(name="IDX_1C4987DC1D06ADE3", columns={"idVisiteur"})})
  * @ORM\Entity(repositoryClass="App\Repository\FichefraisRepository")
+ * 
  */
 class Fichefrais
 {
@@ -74,6 +75,7 @@ class Fichefrais
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\ManyToMany(targetEntity="Fraisforfait", mappedBy="idvisiteur")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $idfraisforfait;
 
