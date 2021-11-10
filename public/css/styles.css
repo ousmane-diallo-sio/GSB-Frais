@@ -1,3 +1,16 @@
+:root {
+    --black1: #111;
+    --black3: #333;
+    --royalBlue: #685EEC;
+    --havelockBlue: #63A0DD;
+    --jacarta: #3D345B;
+    --shark: #272c33;
+    --pastelGreen: #77dd77;
+    --confettiYellow: #E2EC5E;
+    --darkRed: #ad382f;
+  }
+  
+
 p, h1,h2,h3,h4,h5, td, tr, a, ul{
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -9,7 +22,7 @@ p, h1,h2,h3,h4,h5, td, tr, a, ul{
 
 button{
     border: none;
-    color: white;
+    color: black;
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
@@ -17,23 +30,33 @@ button{
     font-size: 16px;
     border-radius: 0.3em;
     transition: 0.25s;
-    background-color: grey;
+    background-color: var(--havelockBlue);
 }
 
 button:hover{
     cursor: pointer;
-    background-color: #272c33;
-    color: #fff
+    text-decoration: underline;
 }
+
+button:active{
+
+}
+
+input{
+    border: solid black 2px;
+    padding: 0.2em 0.1em 0.2em 0.1em;
+    margin: 0.2em 0.1em 0.4em 0.1em ;
+    transition: 0.35s;
+}
+
 
 .navBar{
     display: flex;
     flex-direction: row; 
     justify-content: space-between; 
-    background-color:#272c33; 
+    background-color: var(--shark); 
     padding: 1em 1em 0 1em;
 }
-
 
 .greenBG{
     background-color: #4CAF50;
@@ -45,4 +68,38 @@ button:hover{
 
 .border{
     border: solid #000 0.1em;
+}
+
+.erreur{
+    color:red; 
+    border-radius:5%; 
+    text-align:left; 
+    font-size: 12px;
+}
+
+.ficheContainer{
+    width: 100%;
+    justify-content: space-around;
+}
+
+.ficheHead{
+    font-weight: bold;
+    background-color: var(--shark);
+}
+
+.ficheHead th{
+    color: white;
+}
+
+.ficheBody{
+    text-align: center;
+    background-color:  #eee;
+}
+
+.ficheBody .clickable{
+    background-color: #d5d5d5;
+}
+
+.ficheBody a{
+    color: black;
 }

@@ -11,24 +11,24 @@
 {% block body %}
     <h1>Fichefrais index</h1>
 
-    <table class="table">
-        <thead>
+    <table class="table ficheContainer">
+        <thead class="ficheHead">
             <tr>
                 <th>Mois</th>
                 <th>Nbjustificatifs</th>
                 <th>Montantvalide</th>
                 <th>Datemodif</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="ficheBody">
         {% for fichefrai in fichefrais %}
             <tr>
                 <td>{{ fichefrai.mois }}</td>
                 <td>{{ fichefrai.nbjustificatifs }}</td>
                 <td>{{ fichefrai.montantvalide }}</td>
                 <td>{{ fichefrai.datemodif ? fichefrai.datemodif|date('Y-m-d') : '' }}</td>
-                <td>
+                <td class="clickable">
                     <a href="{{ path('fichefrais_show', {'mois': fichefrai.mois}) }}">afficher</a>
                     <a href="{{ path('fichefrais_edit', {'mois': fichefrai.mois}) }}">modifier</a>
                 </td>

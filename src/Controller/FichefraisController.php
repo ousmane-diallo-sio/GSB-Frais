@@ -88,6 +88,21 @@ class FichefraisController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $fichefrai = $entityManager->getRepository(FichefraisType::class)->find($fichefrai);
+
+            if (!$fichefrai) {
+                throw $this->createNotFoundException(
+                    'No product found for id '.$fichefrai
+                );
+            }
+
+            $fichefrai->setMois( $form->get('mois')->getData() );
+            $fichefrai->setNbjustificatifs( $form->get('nbjustificatifs')->getData() );
+            $fichefrai->setMontantvalide( $form->get('montantvalide')->getData() );
+            $fichefrai->setDatemodif( $form->get('datemodif')->getData() );
+            $fichefrai->setIdetat( $form->get('idetat')->getData() );
+            $fichefrai->setIdvisiteur( $form->get('idvisiteur')->getData() );
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('fichefrais_index', [], Response::HTTP_SEE_OTHER);

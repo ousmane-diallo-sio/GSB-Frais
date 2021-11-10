@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Fichefrais;
+use Doctrine\DBAL\Types\BigIntType;
 use Doctrine\DBAL\Types\DateType;
 use Doctrine\DBAL\Types\StringType;
 use Doctrine\DBAL\Types\TextType;
@@ -33,14 +34,27 @@ class FichefraisType extends AbstractType
                     'Octobre' => 'oct',
                     'Novembre' => 'nov',
                     'Décembre' => 'déc'
-                ]
+                ],
+                'required' => true,
             ])
-            ->add('nbjustificatifs')
-            ->add('montantvalide')
-            ->add('datemodif')
-            ->add('idetat')
-            ->add('idvisiteur')
-            ->add('idfraisforfait')
+            ->add('nbjustificatifs', null, [
+                'required' => true,
+            ])
+            ->add('montantvalide', null, [
+                'required' => true,
+            ])
+            ->add('datemodif', null, [
+                'required' => true,
+            ])
+            ->add('idetat', null, [
+                'required' => true,
+            ])
+            ->add('idvisiteur', null, [
+                'required' => true,
+            ])
+            ->add('idfraisforfait', null, [
+                'required' => true,
+            ])
         ;
     }
 
