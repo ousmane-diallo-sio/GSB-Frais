@@ -68,6 +68,7 @@ class ConnexionController extends AbstractController
 
                 $session = $request->getSession();
                 //$session->start();
+                $session->set( 'visiteur', $visiteur );
                 $session->set( 'login', $visiteur->getLogin() );
                 $session->set( 'id', $visiteur->getId() );
                 $session->set( 'nom', $visiteur->getNom() );
@@ -96,8 +97,6 @@ class ConnexionController extends AbstractController
         $session->invalidate();
         return $this->redirect('index/index.html.twig');
     }
-
-
 
 
 }

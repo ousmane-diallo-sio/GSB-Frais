@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Controller\ConnexionController;
 use App\Entity\Fichefrais;
 use Doctrine\DBAL\Types\BigIntType;
 use Doctrine\DBAL\Types\DateType;
@@ -49,8 +50,11 @@ class FichefraisType extends AbstractType
             ->add('idetat', null, [
                 'required' => true,
             ])
-            ->add('idvisiteur', null, [
+            ->add('idvisiteur', ChoiceType::class, [
                 'required' => true,
+                'choices' => [
+                    $options['idvisiteur'] => $options['visiteur']
+                ]
             ])
             ->add('idfraisforfait', null, [
                 'required' => true,
@@ -62,6 +66,8 @@ class FichefraisType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Fichefrais::class,
+            'idvisiteur' => 'default value',
+            'visiteur' => 'default value',
         ]);
     }
 }

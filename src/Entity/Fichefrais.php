@@ -47,7 +47,7 @@ class Fichefrais
      *
      * @ORM\Column(name="dateModif", type="date", nullable=true, options={"default"="NULL"})
      */
-    private $datemodif = 'NULL';
+    private $datemodif;
 
     /**
      * @var \Etat

@@ -33,7 +33,8 @@
             <input name="login" class="border" id="login" placeholder="login" autocomplete="off" style="text-align:center; font-weight: bold" />
             <label>Mot de passe</label>
             <input name="mdp" type="password" class="border" id="mdp" placeholder="mot de passe" style="text-align:center;" />
-                        {% set lienPage = path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) %}
+            
+            {% set lienPage = path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) %}
 
             {% if lienPage == '/connexion/echec' %}
                 <li class="erreur">Identifiant ou mot de passe incorrect.</li>

@@ -6,29 +6,36 @@
     <h1>Fichefrais</h1>
 
     <table class="table">
-        <tbody>
+        <tbody style="text-align:left">
             <tr>
-                <th>Mois</th>
+                <th>Mois : </th>
                 <td>{{ fichefrai.mois }}</td>
             </tr>
             <tr>
-                <th>Nbjustificatifs</th>
+                <th>Nombre de justificatif(s) : </th>
                 <td>{{ fichefrai.nbjustificatifs }}</td>
             </tr>
             <tr>
-                <th>Montantvalide</th>
+                <th>Montant valide : </th>
                 <td>{{ fichefrai.montantvalide }}</td>
             </tr>
             <tr>
-                <th>Datemodif</th>
+                <th>Dernière modification :</th>
                 <td>{{ fichefrai.datemodif ? fichefrai.datemodif|date('Y-m-d') : '' }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('fichefrais_index') }}">back to list</a>
+    <br>
+    <div style="display: flex; flex-direction: column; max-width: 14em">
+        <div style="display: flex; flex-direction: row; justify-content: space-evenly; margin-bottom: 2em">
+            <button style="background-color: black; color: white">
+                <a style="color: white" href="{{ path('fichefrais_edit', {'mois': fichefrai.mois}) }}">Modifier</a>
+            </button>
 
-    <a href="{{ path('fichefrais_edit', {'mois': fichefrai.mois}) }}">edit</a>
+            {{ include('fichefrais/_delete_form.html.twig') }}
+        </div>
+        <a href="{{ path('fichefrais_index') }}">Retour vers la liste</a>
+    </div>
 
-    {{ include('fichefrais/_delete_form.html.twig') }}
 {% endblock %}

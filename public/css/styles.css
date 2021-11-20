@@ -2,16 +2,22 @@
     --black1: #111;
     --black3: #333;
     --royalBlue: #685EEC;
+    --scienceBlue: #0275d8;
     --havelockBlue: #63A0DD;
     --jacarta: #3D345B;
     --shark: #272c33;
     --pastelGreen: #77dd77;
+    --fernGreen: #5CB85C;
     --confettiYellow: #E2EC5E;
+    --amberYellow: #FFC107;
     --darkRed: #ad382f;
+    --romaRed: #D9534F;
+    --grey: #eee;
+    --greyAlabaster: #F7F7F7;
   }
   
 
-p, h1,h2,h3,h4,h5, td, tr, a, ul{
+p, h1,h2,h3,h4,h5, td, tr, a, ul, label{
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -20,9 +26,14 @@ p, h1,h2,h3,h4,h5, td, tr, a, ul{
 }
 
 
+body{
+    margin: 0 15% 0 15%;
+    
+}
+
 button{
     border: none;
-    color: black;
+    color: var(--greyAlabaster);
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
@@ -30,7 +41,7 @@ button{
     font-size: 16px;
     border-radius: 0.3em;
     transition: 0.25s;
-    background-color: var(--havelockBlue);
+    background-color: var(--scienceBlue);
 }
 
 button:hover{
@@ -38,9 +49,22 @@ button:hover{
     text-decoration: underline;
 }
 
-button:active{
-
+button a{
+    color: white; 
+    text-decoration: none
 }
+
+.form{
+    display: flex; 
+    flex-direction: column; 
+    margin-bottom: 1em;
+}
+
+.form label{
+    font-weight: bold;
+    margin-top: 0.5em;
+}
+
 
 input{
     border: solid black 2px;
@@ -97,9 +121,17 @@ input{
 }
 
 .ficheBody .clickable{
-    background-color: #d5d5d5;
+    background-color: #D4D4D4;
 }
 
 .ficheBody a{
     color: black;
+}
+
+
+select{
+    padding: 0.2em;
+    border: var(--shark) 0.1em solid;
+    margin: 0.3em 0.1em 0.3em 0.1em;
+    border-radius: 0.15em;
 }

@@ -1,4 +1,19 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Enregistrer') }}</button>
+    <div class="form">
+        {{ form_label(form.idvisiteur) }}
+        {{ form_widget(form.idvisiteur) }}
+        {{ form_label(form.mois) }}
+        {{ form_widget(form.mois) }}
+        {{ form_label(form.nbjustificatifs) }}
+        {{ form_widget(form.nbjustificatifs) }}
+        {{ form_label(form.montantvalide) }}
+        {{ form_widget(form.montantvalide) }}
+        {{ form_label(form.datemodif) }}
+        {{ form_widget(form.datemodif) }}
+        {{ form_label(form.idetat) }}
+        {{ form_widget(form.idetat) }}
+        {{ form_label(form.idfraisforfait) }}
+        {{ form_widget(form.idfraisforfait) }}
+    </div>
+    <button class="btn" style="background-color: var(--shark);">{{ button_label|default('Enregistrer') }}</button>
 {{ form_end(form) }}
