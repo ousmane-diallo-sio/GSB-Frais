@@ -18,7 +18,6 @@ use App\Entity\Etat;
  */
 class Fichefrais
 {
-
     /**
      * @var string
      *
@@ -76,6 +75,9 @@ class Fichefrais
      *
      * @ORM\ManyToMany(targetEntity="Fraisforfait", mappedBy="idvisiteur")
      * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id", referencedColumnName="id")
+     * })
      */
     private $idfraisforfait;
 

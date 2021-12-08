@@ -48,10 +48,19 @@ class Lignefraishorsforfait
      * @ORM\ManyToOne(targetEntity="Fichefrais")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idVisiteur", referencedColumnName="idVisiteur"),
-     *   @ORM\JoinColumn(name="mois", referencedColumnName="mois")
      * })
      */
     private $idvisiteur;
+
+    /**
+     * @var \Fichefrais
+     *
+     * @ORM\ManyToOne(targetEntity="Fichefrais")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="mois", referencedColumnName="mois")
+     * })
+     */
+    private $mois;
 
     public function getId(): ?int
     {

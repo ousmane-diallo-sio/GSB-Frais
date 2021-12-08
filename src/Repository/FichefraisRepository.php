@@ -19,6 +19,18 @@ class FichefraisRepository extends ServiceEntityRepository
         parent::__construct($registry, Fichefrais::class);
     }
 
+
+    public function supprimerFiche($idvisiteur, $mois){
+        return $this->createQueryBuilder('f')
+            ->delete()
+            ->where('mois = :mois')
+            ->andWhere('idvisiteur = :idvisiteur')
+            ->setParameter('mois', $mois)
+            ->setParameter('idvisiteur', $idvisiteur)
+            ->getQuery()
+            ->execute();
+    }
+
     // /**
     //  * @return Fichefrais[] Returns an array of Fichefrais objects
     //  */

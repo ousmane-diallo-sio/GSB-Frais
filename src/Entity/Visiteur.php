@@ -24,6 +24,14 @@ class Visiteur
     private $id = 'NULL';
 
     /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Fraisforfait", mappedBy="idvisiteur")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idfraisforfait = "NULL";
+
+    /**
      * @var string|null
      *
      * @ORM\Column(name="nom", type="string", length=30, nullable=true, options={"default"="NULL","fixed"=true})

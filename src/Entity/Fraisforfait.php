@@ -22,6 +22,7 @@ class Fraisforfait
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
+    
 
     /**
      * @var string|null
@@ -40,9 +41,10 @@ class Fraisforfait
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Fichefrais", mappedBy="idfraisforfait")
+     * @ORM\ManyToMany(targetEntity="Fichefrais", inversedBy="idfraisforfait")
      */
     private $idvisiteur;
+
 
     /**
      * Constructor

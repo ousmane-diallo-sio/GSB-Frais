@@ -58,6 +58,7 @@ class FichefraisType extends AbstractType
             ])
             ->add('idfraisforfait', null, [
                 'required' => true,
+                'data' => $options['idfraisforfait']
             ])
         ;
     }
@@ -68,6 +69,7 @@ class FichefraisType extends AbstractType
             'data_class' => Fichefrais::class,
             'idvisiteur' => 'default value',
             'visiteur' => 'default value',
+            'idfraisforfait' => 'default value'
         ]);
     }
 }

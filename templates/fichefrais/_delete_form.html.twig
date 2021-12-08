@@ -1,4 +1,4 @@
-<form method="post" action="{{ path('fichefrais_delete', {'mois': fichefrai.mois}) }}" onsubmit="return confirm('Supprimer cet item ?');">
+<form method="post" action="{{ path('fichefrais_delete', {'mois': fichefrai.mois, 'id': app.session.get('id')}) }}" onsubmit="return confirm('Supprimer cet item ?');">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ fichefrai.mois) }}">
     <button class="btn" style="background-color: var(--darkRed)">Supprimer</button>
 </form>

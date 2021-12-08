@@ -1,6 +1,6 @@
 <div class="navBar">
+        <img style="background-color: #ddd; height: 4em; width: 4em; margin: 0.2em; transition: 1s" id="logo" rel="icon" src="{{asset('/img/logo-alpha.png')}}" style="width: 4em; height: 4em; vertical-align: middle; margin-right: 1em" />
         <div>
-                <img rel="icon" src="{{asset('/img/logo.png')}}" style="width: 4em; height: 4em; vertical-align: middle; margin-right: 1em" />
                 <a style="color:#fff; font-weight: bold" href={{path('accueilUtilisateur')}}>Accueil</a>
                 <a style="color:#fff; font-weight: bold" href={{ path('consulterFicheFrais') }}>Consulter fiches de frais</a>
         </div>
@@ -10,3 +10,19 @@
         </div>        
 </div>
 
+
+<script>
+        let logo = document.getElementById("logo");
+
+        let exe = false;
+        const interval = setInterval(function() {
+                if( !exe){
+                        logo.style.backgroundColor = "#fff";
+                        exe = true;
+                } else{
+                        logo.style.backgroundColor = "#ddd";
+                        exe = false;
+                }
+            }, 1500);
+        
+</script>
