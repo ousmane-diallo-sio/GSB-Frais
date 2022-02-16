@@ -21,14 +21,26 @@ class FichefraisRepository extends ServiceEntityRepository
 
 
     public function supprimerFiche($idvisiteur, $mois){
-        return $this->createQueryBuilder('f')
+        print_r("Repo : " . $mois . $idvisiteur);
+        $em = $this->getEntityManager();
+        $dql = "delete App\Entity\Fichefrais p where p.mois = :mois and p.idvisiteur = :idvisiteur";
+        $requete = $em->createQuery($dql)
+            ->setParameters(
+                array(
+                    'idvisiteur' => $idvisiteur,
+                    'mois' => $mois
+                )
+                );
+        $requete->execute();
+
+        /*return $this->createQueryBuilder('f')
             ->delete()
             ->where('mois = :mois')
-            ->andWhere('idvisiteur = :idvisiteur')
             ->setParameter('mois', $mois)
+            ->andWhere('idvisiteur = :idvisiteur')
             ->setParameter('idvisiteur', $idvisiteur)
             ->getQuery()
-            ->execute();
+            ->execute();*/
     }
 
     // /**
