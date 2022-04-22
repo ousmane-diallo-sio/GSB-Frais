@@ -2,10 +2,6 @@
 Application Web de gestion de frais (Symfony)
 
 
-### Modélisation de la base de données
-
-![](documents/modele-gsbfrais.jpg)
-
 
 ### Captures d'écrans de l'application web
 
@@ -71,3 +67,13 @@ Application Web de gestion de frais (Symfony)
 6.c - La date d'enregistrement des frais hors forfait date de plus d'un an. Le système indique 'La date d'engagement doit se situer dans l'année écoulée'. Retour à l'étape 5.
 7 - L'utilisateur sélectionne un frais hors forfait pour suppresion.
 8 - Le système enregistre cette suppresion après une demande de confirmation.
+
+### Modélisation de la base de données
+
+![](documents/modele-gsbfrais.jpg)
+
+
+### Contexte GSB
+
+Ce projet s’appuie sur le contexte GSB. Galaxy Swiss Bourdin est un laboratoire pharmaceutique dont l’activité est constituée par la production et la distribution de médicaments ainsi que par des visites médicales. 
+L’objectif de l’entreprise GSB est d’optimiser son activité à travers l’utilisation de l’informatique. 
